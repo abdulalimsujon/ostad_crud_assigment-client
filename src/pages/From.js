@@ -14,30 +14,31 @@ const From = () => {
         const quantity = e.target.quantity.value;
         const date = e.target.date.value;
 
-        // const users = {
+        const user = {
 
-        //     name: name,
-        //     product: product,
-        //     quantity: quantity,
-        //     date: date
-        // }
-
-
-
-
-
-        console.log(name);
-        console.log(product);
-        console.log(quantity);
-        console.log(date);
+            name: name,
+            product: product,
+            quantity: quantity,
+            date: date
+        }
+        fetch('http://localhost:8000/user', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
 
 
+            body: JSON.stringify(user)
+        }
+        )
+
+        e.target.reset();
 
     }
     return (
         <div className='bg-slate-400' >
 
-            <h1 className='text-center p-12 color-accent'>The user Form</h1>
+            <h1 className='text-center p-6 text-indigo-900'>The user Form</h1>
             <form onSubmit={manageUser} className='grid grid-cols-1 gap-3 justify-items-center pb-5 '>
 
                 <input type="text" placeholder="name" name='name' class="input input-bordered input-md w-full max-w-xs" />

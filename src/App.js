@@ -1,6 +1,9 @@
-import logo from './logo.svg';
+
 import './App.css';
 import From from './pages/From';
+import View from './pages/View';
+import { Route, Routes } from 'react-router-dom';
+import Update from './pages/Update';
 // import From from './pages/From'
 
 function App() {
@@ -10,6 +13,12 @@ function App() {
       <From>
 
       </From>
+      <View></View>
+
+      <Routes>
+        <Route path='user/:id' element={<Update></Update>}></Route>
+
+      </Routes>
     </div>
   );
 }
